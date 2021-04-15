@@ -176,25 +176,27 @@ function checkAnswer(e) {
         EventClass.add("red");
     }
     questionIndex++;
-
-    scorePoint
+    if (ansStatus == 1)
+    {
+        scorePoint = scorePoint + 5;
+    }
     $(".options_wrapper .option").off("click");
     $(".actions_btns .btn-start").html("Next Question").fadeIn().on("click", () =>
-        loadNewQuestion();
-});
-refreshQuiz();
-loadQuestion();
+        loadNewQuestion());
+    refreshQuiz();
+    loadQuestion();
 
-function loadQuestion() {
-    $(".question_wrapper .question .txt").html(questions[questionIndex].question);
-    for (let i = 0; i < questions[questionIndex].answers.length; i++) {
-        $(".options_wrapper.option:nth-child(" + (i + 1) + ")")
-            .html(questions[questionIndex].answers[i]);
+    function loadQuestion() {
+        $(".question_wrapper .question .txt").html(questions[questionIndex].question);
+        for (let i = 0; i < questions[questionIndex].answers.length; i++) {
+            $(".options_wrapper.option:nth-child(" + (i + 1) + ")")
+                .html(questions[questionIndex].answers[i]);
+
+        }
+    }
+    function refreshQuiz() {
+        $(".total").html(questions.length);
+        $(".answered").html(questionIndex + 1);
+        $(".points").html(scorePoint);
     }
 }
-function refreshQuiz() {
-    $(".total").html(questions.length);
-    $(".answered").html(questionIndex + 1);
-    $(".points").html(scorePoint);
-}
-
