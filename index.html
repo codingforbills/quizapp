@@ -1,55 +1,87 @@
 <!DOCTYPE html>
-<html lang ="en">
-    <head>
-        <meta charset = "UTF-8">
-        <meta name = "viewport" content = "width=device-width, intial-scale=1.0">
-        <title>GeekyQuiz</title>
-        <link rel ="stylesheet" href="css/style.css"/>
-    </head>
-    <body>
-        <div class = "quiz_container">
-            <div class ="quiz_wrapper">
-                <div class= "welcome-txt">
-                    Start The Quiz!
-                </div>
-                <div class = "quiz_stats display: none; font-family: Poppins, sans-serif;">
-                    <div class = "quiz_timer">
-                        <div class = "time">
-                            30
-                        </div>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, intial-scale=1.0">
+    <title>GeekyQuiz</title>
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+    <div class="quiz_container">
+        <div class="reults_wrapper">
+            <table style ="width: 100%;padding: 40px;"*>
+                <tr>
+                    <th rowspan="3"> Results</t>
+                </tr>
+                <tr>
+                    <td>Score</td>
+                    <td>: </td>
+                    <td class="rScore"></td>
+                </tr>
+                <tr>
+                    <td>TtlQuestions</td>
+                    <td>:</td>
+                    <td class="rQuestions"></td>
+                </tr>
+                <tr>
+                    <td>Correct</td>
+                    <td>:</td>
+                    <td class="rCorrect"></td>
+                </tr>
+                <tr>
+                    <td>Wrong</td>
+                    <td>:</td>
+                    <td class="rWrong"></td>
+                </tr>
+                <tr>
+                    <td>Percentage</td>
+                    <td>:</td>
+                    <td class="rPercentage"></td>
+                </tr>
+            </table>
+            <div class="welcome-txt">
+                Start The Quiz!
+            </div>
+            <div class="quiz_stats display: none; font-family: Poppins, sans-serif;">
+                <div class="quiz_timer">
+                    <div class="time">
+                        30
                     </div>
-                    <div class ="quiz_score"> 
-                        <div class = "txt">Score: </div>
-                        <div class = "points">20</div>
-                    </div>
                 </div>
-                <div class= "welcome-txt">
-                    Start The Quiz!
-                </div>
-                <div class = "question_wrapper" style="display: none; font-family: Poppins, sans-serif;">
-                    <div class="question_count">
-                        <span class ="answered"> 5 </span>
-                        <span> &nbsp;/ </span>
-                        <span class ="total">20</span>
-                    </div>
-                    <div class = "questions">
-                        <div class = "txt"> What does HTML stand for???</div>
-                    </div>
-                </div>
-                <div class="options_wrapper" style="display:none;">
-                    <div class="option 1">A</div>
-                    <div class="option 2">B</div>
-                    <div class="option 3">C</div>
-                    <div class="option 4">D</div>
-                </div>
-                <div class="actions_btns">
-                    <div class="btn btn-next">Next Question</div>
-                    <div class="btn btn-start">Start Quiz</div>
+                <div class="quiz_score">
+                    <div class="txt">Score: </div>
+                    <div class="points">20</div>
                 </div>
             </div>
+            <div class="welcome-txt">
+                Start The Quiz!
+            </div>
+            <div class="question_wrapper" style="display: none; font-family: Poppins, sans-serif;">
+                <div class="question_count">
+                    <span class="answered"> 5 </span>
+                    <span> &nbsp;/ </span>
+                    <span class="total">20</span>
+                </div>
+                <div class="questions">
+                    <div class="txt"> What does HTML stand for???</div>
+                </div>
+            </div>
+            <div class="options_wrapper" style="display:none;">
+                <div class="option 1">A</div>
+                <div class="option 2">B</div>
+                <div class="option 3">C</div>
+                <div class="option 4">D</div>
+            </div>
+            <div class="actions_btns">
+                <div class="btn btn-next">Next Question</div>
+                <div class="btn btn-start">Start Quiz</div>
+            </div>
         </div>
-        <script src="js/jquery.mins.js"></script>
-        <script src="js/script.js"></script>
-    </body>
-    </html>
+    </div>
+    <script src="js/jquery.mins.js"></script>
+    <script src="js/script.js"></script>
+</body>
 
+</html>
