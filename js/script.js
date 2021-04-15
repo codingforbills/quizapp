@@ -144,59 +144,79 @@ function loadQuiz() {
             }, 1000);
         });
 
-    function newFunction() {
-        loadQuestion();
-        $(".options_wrapper .option").hide();
-        $(".options_wrapper").fadeIn(1000);
-        setTimeout(() => {
-            $(".options_wrapper .option:nth-child(1)").slideDown(500);
-            setTimeout(() => {
-                $(".options_wrapper .option:nth-child(2)").slideDown(500);
-                $(".actions_btns .btn-start").off("click");
-                $(".options_wrapper.option").on("click", (e) => {
-                    checkAnswer(e);
-                })
-            }, 500);
-        }, 1000);
-    }
-}
+    function newFunction() { //loadNewQuestion
+        if (questionIndex > questions.length) {
 
-function checkAnswer(e) {
-    EventClass = e.target.classList;
-    ansStatus = 0;
-    if ((EventClass.contains("one") && questions[questionIndex].correct == 1) ||
-        (EventClass.contains("two") && questions[questionIndex].correct == 2) ||
-        (EventClass.contains("three") && questions[questionIndex].correct == 3) ||
-        (EventClass.contains("four") && questions[questionIndex].correct == 4)) {
-        EventClass.add("green");
-        ansStatus = 1
-    }
-    else {
-
-        EventClass.add("red");
-    }
-    questionIndex++;
-    if (ansStatus == 1)
-    {
-        scorePoint = scorePoint + 5;
-    }
-    $(".options_wrapper .option").off("click");
-    $(".actions_btns .btn-start").html("Next Question").fadeIn().on("click", () =>
-        loadNewQuestion());
-    refreshQuiz();
-    loadQuestion();
-
-    function loadQuestion() {
-        $(".question_wrapper .question .txt").html(questions[questionIndex].question);
-        for (let i = 0; i < questions[questionIndex].answers.length; i++) {
-            $(".options_wrapper.option:nth-child(" + (i + 1) + ")")
-                .html(questions[questionIndex].answers[i]);
-
+            $(".quiz_wrapper".fadeOut();
         }
+        else{
+            loadQuestion();
+            refreshQuiz();
+            $(".options_wrapper .option").hide();
+            $(".options_wrapper .option").removeClass("green");
+            $(".options_wrapper .option").removeClass("red");
+            $(".action_btns .btn-start").hide();
+            $(".options_wrapper").fadeIn(1000);
+            setTimeout(() => {
+                $(".options_wrapper .option:nth-child(1)").slideDown(500);
+                setTimeout(() => {
+                    $(".options_wrapper .option:nth-child(2)").slideDown(500);
+                    $(".actions_btns .btn-start").off("click");
+                    $(".options_wrapper.option").on("click", (e) => {
+                        checkAnswer(e);
+                    })
+                }, 500);
+            }, 1000);
+        } 
     }
-    function refreshQuiz() {
-        $(".total").html(questions.length);
-        $(".answered").html(questionIndex + 1);
-        $(".points").html(scorePoint);
+
+    function checkAnswer(e) {
+        EventClass = e.target.classList;
+        ansStatus = 0;
+        if ((EventClass.contains("one") && questions[questionIndex].correct == 1) ||
+            (EventClass.contains("two") && questions[questionIndex].correct == 2) ||
+            (EventClass.contains("three") && questions[questionIndex].correct == 3) ||
+            (EventClass.contains("four") && questions[questionIndex].correct == 4)) {
+            EventClass.add("green");
+            ansStatus = 1;
+        }
+        else {
+
+            EventClass.add("red");
+        }
+        questionIndex++;
+        if (ansStatus == 1) {
+            scorePoint = scorePoint + 5;
+        }
+        $(".options_wrapper .option").off("click");
+        if (questionIndex > questions.length) {
+            $(".actions_btns .btn-start").html("Results").slideDown("2000").on("click", () =>
+            newFunction());
+    }
+        else {
+        $(".actions_btns .btn-start").html("Next Question").slideDown("2000").on("click", () =>
+            newFunction());
+
+}
+refreshQuiz();
+
+loadQuestion();
+
+function loadQuestion() {
+    $(".question_wrapper .question .txt").html(questions[questionIndex].question);
+    for (let i = 0; i < questions[questionIndex].answers.length; i++) {
+        $(".options_wrapper.option:nth-child(" + (i + 1) + ")")
+            .html(questions[questionIndex].answers[i]);
+
     }
 }
+function refreshQuiz() {
+
+    $(".total").html(questions.length);
+    $(".answered").html(questionIndex + 1);
+    $(".points").html(scorePoint);
+}
+    }
+}
+
+
