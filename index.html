@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, intial-scale=1.0">
@@ -10,15 +9,15 @@
 
 <body>
     <div class="quiz_container">
-        <div class="reults_wrapper">
-            <table style ="width: 100%;padding: 40px;"*>
+        <div class="reults_wrapper" style="display: none; font-family: Georgia, 'Times New Roman', Times, serif;">
+            <table style="width: 100%;padding: 40px;" *>
                 <tr>
-                    <th rowspan="3"> Results</t>
+                    <th colspan="3"> Results</th>
                 </tr>
                 <tr>
-                    <td>Score</td>
-                    <td>: </td>
-                    <td class="rScore"></td>
+                    <td style ="width:60%">Score</td>
+                    <td style = "width: 30%">: </td>
+                    <td style = "width: 10%" class="rScore"></td>
                 </tr>
                 <tr>
                     <td>TtlQuestions</td>
@@ -55,20 +54,17 @@
                     <div class="points">20</div>
                 </div>
             </div>
-            <div class="welcome-txt">
-                Start The Quiz!
-            </div>
             <div class="question_wrapper" style="display: none; font-family: Poppins, sans-serif;">
                 <div class="question_count">
                     <span class="answered"> 5 </span>
-                    <span> &nbsp;/ </span>
+                    <span> &nbsp;\ &nbsp; </span>
                     <span class="total">20</span>
                 </div>
                 <div class="questions">
                     <div class="txt"> What does HTML stand for???</div>
                 </div>
             </div>
-            <div class="options_wrapper" style="display:none;">
+            <div class="options_wrapper" style="display:none; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
                 <div class="option 1">A</div>
                 <div class="option 2">B</div>
                 <div class="option 3">C</div>
@@ -83,5 +79,4 @@
     <script src="js/jquery.mins.js"></script>
     <script src="js/script.js"></script>
 </body>
-
 </html>
